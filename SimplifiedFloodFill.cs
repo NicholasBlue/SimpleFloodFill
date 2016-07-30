@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 /// <summary>
 /// Simplified flood fill Algorithm.
@@ -84,7 +84,7 @@ public class SimplifiedFloodFill {
 				list.Add (neighborTile.Location);
 				FloodFillSearch (map, neighborTile.Location, Mathf.Max(distance - neighborTile.MovementCost, 0), ref list);
 			}
-		} else if(neighborTile && neighborTile.FloodFill) 
+		} else if(neighborTile && neighborTile.FloodFill && !neighborTile.IsImpassable) 
 			FloodFillSearch (map, neighborTile.Location, Mathf.Max(distance - neighborTile.MovementCost, 0), ref list);
 	}
 }
